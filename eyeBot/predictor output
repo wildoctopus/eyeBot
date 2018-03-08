@@ -1,0 +1,12 @@
+
+Call:
+ randomForest(formula = Churn ~ ., data = train_data, ntree = 501,      mtry = 4, importance = TRUE, keep.inbag = TRUE, replace = FALSE) 
+               Type of random forest: classification
+                     Number of trees: 501
+No. of variables tried at each split: 4
+
+        OOB estimate of  error rate: 8.91%
+Confusion matrix:
+      no yes  class.error
+no  7808   2 0.0002560819
+yes  762   1 0.9986893840

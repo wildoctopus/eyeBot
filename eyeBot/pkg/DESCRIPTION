@@ -1,0 +1,11 @@
+Package: rfFC
+Type: Package
+Title: Random Forest Feature Contributions 
+Version: 1.0
+Date: 2015-05-10
+Author: Anna Palczewska <annawojak@gmail.com>, Richard Marchese Robinson <rmarcheserobinson@gmail.com>
+Maintainer: Anna Palczewska  <annawojak@gmail.com>
+Depends: R (>= 2.13), randomForest
+Description: Functions for extracting feature contributions from a random forest model from package 'randomForest'. Feature contributions provide detailed information about the relationship between data variables and the predicted value returned by random forest model.
+License: GPL (>= 2)
+LazyLoad: yes

@@ -1,0 +1,4 @@
+useDynLib(rfFC)
+import(randomForest)
+export(featureContributions, getLocalIncrements,prepareForPredictBC, predictBC, getChanges, checkForestUnanimity)
+

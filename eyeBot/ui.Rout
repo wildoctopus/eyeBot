@@ -1,0 +1,276 @@
+
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> # This is the user-interface definition of a Shiny web application.
+> # You can find out more about building applications with Shiny here:
+> #
+> # http://shiny.rstudio.com
+> #
+> 
+> library(shiny)
+> library(shinyjs)
+
+Attaching package: 'shinyjs'
+
+The following object is masked from 'package:shiny':
+
+    runExample
+
+The following objects are masked from 'package:methods':
+
+    removeClass, show
+
+> 
+> alignCenter <- function(el) {
++   htmltools::tagAppendAttributes(el,
++                                  style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"
++   )
++ }
+> 
+> shinyUI(fluidPage(
++   
++   useShinyjs(),
++   
++   tags$head(tags$style(
++     type="text/css",
++     "img {max-width: 90%;max-height: 90%; width: auto; height: auto; display: block; margin-left: auto; margin-right: auto}"
++   )),
++   
++   
++   
++   # Application title
++  # titlePanel("_______________________________Welcome to Amdocs Churn Prediction Tool_____________________________ "), 
++   
++  #alignCenter(h1("Amdocs eyeBOT - Churn Prediction Tool")),
++  
++  
++  h1(
++    style='background-color: #F2F2EA; text-align:center',
++         img(src='botimages/eye3.gif')),
++   
++  
++  #"Amdocs eyeBOT - Churn Prediction Tool",img(src='botimages/shadow.ico'),
++   # Sidebar with a inputFile 
++   sidebarLayout(
++     sidebarPanel(
++       
++       fluidRow(
++         
++         column(12,
++                alignCenter(h2("Amdocs",img(src='botimages/source.gif'))),
++                img(src = "botimages/robot.png" )
++         )
++       ),
++       
++       fluidRow(
++         
++         column(12,fileInput("file", label = h3("Upoad CSV File"))
++         )
++       )
++       
++       
++     ),
++     
++     # Show a plot of the generated distribution
++     mainPanel(
++       
++      # style = "background:url(./botimages/backg.jpg) no-repeat; max-width: 90%;max-height: 90%; width: auto; height: auto; display: block; margin-left: auto; margin-right: auto;margin-bottom: auto;margin-top: auto ",
++       
++       fluidPage( tabsetPanel(
++         tabPanel("Data Grid", 
++                  fluidRow( 
++                    
++                           
++                           fluidRow(style='padding-top:60px; padding-right:30px',
++                                    
++                                    column(4,
++                                                                          actionButton("Submit1",  alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    ),
++                                    
++                                    column(4,
++                                                                          actionButton("Submit2",alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    ),
++                                    
++                                    column(4, 
++                                                                           actionButton("Submit3", alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    )
++                                    
++                           ),
++                           fluidRow(style='padding-top:20px; padding-right:30px',
++                                    
++                                    column(4,
++                                                                          actionButton("Submit4",  alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    ),
++                                    
++                                    column(4,
++                                                                          actionButton("Submit5",  alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    ),
++                                    
++                                    column(4, 
++                                                                           actionButton("Submit6", alignCenter(img(src = "botimages/p2.png" )))
++                                    
++                                    )
++                                    
++                           ))
++                  ),
++         
++         tabPanel("Predicted Data", "contents"),
++         tabPanel("Churn List", "temp"
++                  
++                  
++                  # fluidRow(
++                  #   uiOutput("newWindowContent", style = "display: none;"),
++                  #   tags$script(HTML("
++                  #                    $(document).ready(function() {
++                  #                    if(window.location.hash != '') {
++                  #                    $('div:not(#newWindowContent)').hide();
++                  #                    $('#newWindowContent').show();
++                  #                    $('#newWindowContent').appendTo('body');
++                  #                    }
++                  #                    })
++                  #                    ")),
++                  #   a(id="blank", href = "#NEW", target = "_blank",
++                  #     actionButton("Submit", "Submit")
++                  #   )
++                  #   )
++                  )
++         
++         
++         )
++       )
++       
++       
++       
++      
++     )
++     )
++   )
++ )
+<div class="container-fluid">
+  <h1 style="background-color: #F2F2EA; text-align:center">
+    <img src="botimages/eye3.gif"/>
+  </h1>
+  <div class="row">
+    <div class="col-sm-4">
+      <form class="well">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;">
+              Amdocs
+              <img src="botimages/source.gif"/>
+            </h2>
+            <img src="botimages/robot.png"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group shiny-input-container">
+              <label>
+                <h3>Upoad CSV File</h3>
+              </label>
+              <div class="input-group">
+                <label class="input-group-btn">
+                  <span class="btn btn-default btn-file">
+                    Browse...
+                    <input id="file" name="file" type="file" style="display: none;"/>
+                  </span>
+                </label>
+                <input type="text" class="form-control" placeholder="No file selected" readonly="readonly"/>
+              </div>
+              <div id="file_progress" class="progress progress-striped active shiny-file-input-progress">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-8">
+      <div class="container-fluid">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#tab-1088-1" data-toggle="tab" data-value="Data Grid">Data Grid</a>
+            </li>
+            <li>
+              <a href="#tab-1088-2" data-toggle="tab" data-value="Predicted Data">Predicted Data</a>
+            </li>
+            <li>
+              <a href="#tab-1088-3" data-toggle="tab" data-value="Churn List">Churn List</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" data-value="Data Grid" id="tab-1088-1">
+              <div class="row">
+                <div class="row" style="padding-top:60px; padding-right:30px">
+                  <div class="col-sm-4">
+                    <button id="Submit1" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="Submit2" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="Submit3" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                </div>
+                <div class="row" style="padding-top:20px; padding-right:30px">
+                  <div class="col-sm-4">
+                    <button id="Submit4" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="Submit5" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="Submit6" type="button" class="btn btn-default action-button">
+                      <img src="botimages/p2.png" style="margin-left:auto;margin-right:auto; text-align:center; font-weight:bold;"/>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" data-value="Predicted Data" id="tab-1088-2">contents</div>
+            <div class="tab-pane" data-value="Churn List" id="tab-1088-3">temp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+> 
+> 
+> proc.time()
+   user  system elapsed 
+   0.37    0.37    0.73 
